@@ -1,0 +1,530 @@
+/**index.wxss**/
+
+page {
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0rpx;
+  z-index: -1;
+}
+
+.container{
+  position: relative;
+}
+
+.updatetip{
+  position: absolute;
+  top:90rpx;
+  width:100%;
+  text-align: center;
+  font-size:30rpx;
+  color:rgb(49, 49, 49);
+}
+
+.tip-container{
+  position: fixed;
+  z-index:1000;
+  padding-top:136rpx;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0,0.8);
+}
+
+.tip{
+  width:750rpx;
+  height:1004rpx;
+}
+
+.tip-button{
+  border:1rpx dashed #cecece;
+  font-size:30rpx;
+  color:#cecece;
+  text-align: center;
+  width:170rpx;
+  padding-left:15rpx;
+  padding-right:15rpx;
+  margin:0 auto;
+  margin-top:40rpx;
+  height:65rpx;
+  line-height: 65rpx;
+  border-radius: 15rpx;
+  letter-spacing: 5rpx;
+}
+
+.position {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  color: black;
+  font-weight: bold;
+  font-size: 35rpx;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.position-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 35rpx;
+  margin-left: 10rpx;
+}
+
+/* 温度 */
+
+.wendu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 300rpx;
+  font-size: 150rpx;
+  line-height: 300rpx;
+  color: black;
+  font-family: 'MJ';
+}
+
+/* 天气和大气 */
+
+.air, .air-pi {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.air {
+  display: flex;
+  justify-content: center;
+  font-size: 35rpx;
+  color: #04070c;
+}
+
+.air-shu {
+  height: 40rpx;
+  border-left: 1rpx solid #53565b;
+  margin-left: 35rpx;
+  margin-top: 10rpx;
+}
+
+.air-pi {
+  display: flex;
+  color: white;
+  border-radius: 10rpx;
+  margin-left: 40rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+.air-pi-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+}
+
+.air-pi-text {
+  margin-left: 15rpx;
+}
+
+/* 风力湿度和压强 */
+
+.wea {
+  display: flex;
+  justify-content: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: 595c61;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.wea-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 17rpx;
+}
+
+.wea-text {
+  margin-left: 15rpx;
+}
+
+/* 今明两天的天气 */
+
+.twodays {
+  display: flex;
+  margin-top: 15rpx;
+  background: rgba(231, 237, 241, 0.2);
+  width: 100%;
+  font-size: 30rpx;
+  color: #000104;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.day {
+  width: 374rpx;
+}
+
+.day-line1, .day-line2 {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  justify-content: space-between;
+}
+
+.day-line1 {
+  margin-top: 10rpx;
+}
+
+.day-line1-left {
+  display: flex;
+  margin-left: 20rpx;
+}
+
+.day-line1-right {
+  margin-right: 15rpx;
+  font-size:28rpx;
+}
+
+.day-line1-left-text1 {
+}
+
+.day-line1-left-text2 {
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  height: 40rpx;
+  font-size:28rpx;
+  line-height: 40rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  margin-left: 15rpx;
+  text-align: center;
+  color: white;
+  background: #23b085;
+}
+
+.day-line2-left {
+  margin-left: 20rpx;
+}
+
+.day-line2-right {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.twodays-line {
+  height: 140rpx;
+  border-left: 1rpx solid rgba(225, 229, 232, 0.5);
+}
+
+.picker {
+  width: 100%;
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color: black;
+  box-shadow: 0rpx 10rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 下面的线 */
+
+.line {
+  position: relative;
+  width: 660rpx;
+  height: 8rpx;
+  background: white;
+  border-radius: 8rpx;
+  left: 45rpx;
+  box-shadow: 0rpx 10rpx 50rpx rgba(63, 63, 63, 0.3);
+}
+
+.icons {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  top: -55rpx;
+}
+
+.icon {
+  width: 55rpx;
+  height: 55rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+/* 日出日落时间显示 */
+
+.mid {
+}
+
+.midline1 {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(68, 68, 68);
+  font-size: 30rpx;
+}
+
+.midline1-block {
+  position: relative;
+  z-index: 900;
+  width: 185rpx;
+  text-align: center;
+}
+
+.midline1-block-down {
+  display: flex;
+  justify-content: center;
+  height: 50rpx;
+}
+
+.swiper, .swiper-item {
+  width: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.swiper-item {
+  text-align: center;
+}
+
+.sun {
+  position: relative;
+  width: 750rpx;
+  height: 150rpx;
+  padding-top: 20rpx;
+  overflow: hidden;
+}
+
+.xuxian {
+  position: absolute;
+  left: 70rpx;
+  border: 5rpx dashed white;
+  height: 600rpx;
+  width: 600rpx;
+  border-radius: 600rpx;
+  overflow-y: hidden;
+}
+
+.rect {
+  width: 0rpx;
+  height: 150rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 天气 */
+.yin{
+  background:linear-gradient(to bottom,rgba(204, 221, 224, 0.5),rgba(163, 163, 163,0.3));
+}
+
+.duoyun{
+  background:linear-gradient(to bottom,rgba(125, 214, 230, 0.5),rgba(163, 163, 163,0.3));
+}
+
+.qing{
+  background:linear-gradient(to bottom,rgba(1, 111, 255, 0.7),rgba(185, 185, 185, 0.2));
+}
+
+.xiaoyu{
+  background:linear-gradient(to bottom,rgba(4, 0, 250, 0.5),rgba(0, 2, 145, 0.3));
+}
+
+.zhenyu{
+  background:linear-gradient(to bottom,rgba(4, 0, 250, 0.3),rgba(0, 2, 145, 0.1));
+}
+
+.zhongyu{
+  background:linear-gradient(to bottom,rgba(4, 0, 250, 0.7),rgba(0, 2, 145, 0.5));
+}
+
+.baoyu{
+  background:linear-gradient(to bottom,rgba(4, 0, 250, 0.9),rgba(0, 2, 145, 0.7));
+}
+
+.shachen{
+  background:linear-gradient(to bottom,rgba(250, 100, 0, 0.5),rgba(184, 182, 177, 0.3));
+}
+
+.wu{
+  background:linear-gradient(to bottom,rgba(250, 250, 250, 0.7),rgba(155, 155, 155, 0.3));
+}
+
+
+/* ************************************* */
+
+.rate, .rate-line1, .rate-line2 {
+  height: 20rpx;
+  border-radius: 20rpx;
+}
+
+.rate {
+  position: relative;
+  width: 600rpx;
+  margin: 50rpx auto;
+  box-shadow: 0rpx 0rpx 100rpx rgba(0, 0, 0, 0.7);
+}
+
+.rate-line1 {
+  position: absolute;
+  left: 0rpx;
+  width: 0rpx;
+  height: 20rpx;
+  border-radius: 20rpx;
+  background: linear-gradient(to bottom right, #f8d243, #d95735);
+  z-index: 10;
+}
+
+.rate-line2 {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  background: linear-gradient(to right, #b6b6b6, #525252);
+  z-index: 9;
+}
+
+.rate-icon {
+  position: absolute;
+  top: -50rpx;
+  left: -50rpx;
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 11;
+}
+
+.midline2 {
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #959595;
+  font-size: 28rpx;
+}
+
+.address {
+  width: 710rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.share {
+  position: fixed;
+  bottom: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 0rpx;
+  left: 640rpx;
+  background: rgba(255, 255, 255, 0);
+}
+
+.share-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.share::after {
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.info {
+  position: fixed;
+  display: flex;
+  bottom: 100rpx;
+  left: 375rpx;
+}
+
+.info-text {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color:white;
+  border-radius:15rpx;
+  background: #4393ec;
+}
+
+.triangle_border_right {
+  width: 0;
+  height: 0;
+  border-width: 22rpx 0 22rpx 22rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent #4393ec; /*透明 透明 透明 灰*/
+  position: relative;
+  margin-top:17rpx;
+  margin-left:-5rpx;
+}
+
+/* 弹窗 */
+
+.model {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.input {
+  position: fixed;
+  top: 0rpx;
+  height: 320rpx;
+  width: 100%;
+  padding: 40rpx 50rpx 40rpx 50rpx;
+  background: rgb(231, 231, 231);
+  z-index: 101;
+}
+
+.inputblock {
+  display: flex;
+}
+
+.inputblock-title {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: rgb(88, 88, 88);
+}
+
+.inputblock-input {
+  width: 530rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.2);
+}
+
+.confirm {
+  position: relative;
+  width: 670rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  top: 40rpx;
+  background: rgb(1, 112, 238);
+}
+
+.placeholder {
+  font-size: 25rpx;
+}
+
+.select1 {
+  opacity: 0.3
+}
+
+.select2 {
+  background: rgba(145, 145, 145, 0.1);
+}

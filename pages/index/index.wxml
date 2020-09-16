@@ -1,0 +1,176 @@
+<!--index.wxml-->
+<image class="bg" src="{{bg?bg:'/img/bg/bge.jpg'}}"></image>
+
+<view wx:if="{{showTip}}" class="tip-container" style="padding-top:{{fixedTop+30}}rpx;">
+  <image class="tip" src="/img/bg/open-tip1.png"></image>
+  <view class="tip-button" bindtap="closeTip">我知道了</view>
+</view>
+
+<view style="height:{{fixedTop}}rpx;width:720rpx;padding-left:30rpx;line-height:{{barLineHeight}}rpx;font-size:35rpx;color:black">
+  日出日落
+</view>
+
+<view class="container">
+  <!-- 地点 -->
+  <view class="position" bindtap="GOposition" hover-class='select2' hover-stay-time='300'>
+    <view class="position-title">{{address?address:'定位'}}</view>
+    <image class="position-icon" src="/img/trigle.png"></image>
+  </view>
+
+  <!-- 更新tip -->
+  <view class="updatetip" wx:if="{{showUpdateTip}}">更新成功 {{updateMinutesStr}}</view>
+
+
+  <!-- 温度 -->
+  <view class="wendu">
+    <view>{{timeTem.tem?timeTem.tem:0}}</view>
+    <view style="font-size:100rpx;line-height:230rpx;">°</view>
+  </view>
+
+  <!-- 天气和大气 -->
+  <view class="air">
+    <view class="air-type">{{timeTem.wea?timeTem.wea:'晴'}}</view>
+    <view class="air-shu"></view>
+    <view class="air-pi" style="background:{{toStyle.color?toStyle.color:'#23b085'}}">
+      <image class="air-pi-icon" src="{{toStyle.icon?toStyle.icon:'/img/aqi/100.png'}}"></image>
+      <view class="air-pi-text">{{toair?toair:0}}</view>
+      <view class="air-pi-text">{{toAirLevle?toAirLevle:'优'}}</view>
+    </view>
+  </view>
+
+  <!-- 风力、湿度和压强 -->
+  <view class="wea">
+    <image class="wea-icon" src="/img/icon/wind.png" style="transform:rotate({{angle}}deg);"></image>
+    <view class="wea-text" style="margin-left:20rpx;">{{timeTem.win_speed?timeTem.win_speed:'0级'}}</view>
+    <image class="wea-icon" src="/img/icon/humidity.png" style="margin-left:30rpx;"></image>
+    <view class="wea-text">{{humidity?humidity:0}}%</view>
+    <image class="wea-icon" src="/img/icon/press.png" style="margin-left:30rpx;"></image>
+    <view class="wea-text">{{pressure?pressure:0}}hPa</view>
+  </view>
+
+  <!-- 虚线和太阳 -->
+  <view class="sun">
+    <image class="wea" src="{{suriseIcon[0]}}" style="width:50rpx;height:50rpx;position:absolute;left:{{imgrate*520+85}}rpx;top:{{145-iconHeight}}rpx;z-index:999;"></image>
+    <view class="xuxian">
+      <view class="rect {{shanxingStyle}}" style=";width:{{rate*520}}rpx;" animation="{{aniData1}}"></view>
+    </view>
+  </view>
+
+  <!-- 下面的线 -->
+  <view class="line">
+    <view class="icons">
+      <image class="icon" src="/img/rise.png"></image>
+      <image class="icon" src="/img/down.png"></image>
+    </view>
+  </view>
+
+  <!-- 最下面的时间 -->
+  <view class="mid">
+    <view class="midline1">
+      <view wx:for="{{times}}" wx:for-item="time" wx:key="t" class="midline1-block">
+        <view class="midline1-block-down">
+          <swiper current="{{time.currentsNum[0]}}" vertical easing-function="easeInOutCubic" duration="1000" class="swiper">
+            <block wx:for="{{nums}}" wx:key="n">
+              <swiper-item catchtouchmove='catchTouchMove'>
+                <view class="swiper-item">{{item}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <swiper current="{{time.currentsNum[1]}}" vertical easing-function="easeInOutCubic" duration="1000" class="swiper">
+            <block wx:for="{{nums}}" wx:key="n">
+              <swiper-item catchtouchmove='catchTouchMove'>
+                <view class="swiper-item">{{item}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="swiper" style="text-align:center;">:</view>
+          <swiper current="{{time.currentsNum[2]}}" vertical easing-function="easeInOutCubic" duration="1000" class="swiper">
+            <block wx:for="{{nums}}" wx:key="n">
+              <swiper-item catchtouchmove='catchTouchMove'>
+                <view class="swiper-item">{{item}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <swiper current="{{time.currentsNum[3]}}" vertical easing-function="easeInOutCubic" duration="1000" class="swiper">
+            <block wx:for="{{nums}}" wx:key="n">
+              <swiper-item catchtouchmove='catchTouchMove'>
+                <view class="swiper-item">{{item}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+    </view>
+  </view>
+  <ad unit-id="adunit-e2eedfe1f8bbce69" ad-type="video" ad-theme="white"></ad>
+
+  <button open-type="share" class="share" hover-class='select1' hover-stay-time='1000'>
+    <view style="width:100rpx;height:100rpx;">
+      <image class="share-img" src="/img/icon/index_share.png"></image>
+    </view>
+  </button>
+
+  <view class="info" wx:if="{{!hideDialog}}">
+    <view class="info-text">TA在等你的关心</view>
+    <view class="triangle_border_right"></view>
+  </view>
+</view>
+
+<!-- 今明两天天气 -->
+<view class="twodays">
+  <view class="day">
+    <view class="day-line1">
+      <view class="day-line1-left">
+        <view class="day-line1-left-text1">今天</view>
+        <view class="day-line1-left-text2" style="background:{{toStyle.color}}">{{toAirLevle?toAirLevle:'优'}}</view>
+      </view>
+      <view class="day-line1-right">{{toHighAndLow.high?toHighAndLow.high:0}}/{{toHighAndLow.low?toHighAndLow.low:'°C'}}</view>
+    </view>
+    <view class="day-line2">
+      <view class="day-line2-left">{{wea?wea:'晴'}}</view>
+      <view style="display:flex;">
+        <image class="day-line2-right" src="{{toIcon[0]}}"></image>
+        <image wx:if="{{toIcon.length>1}}" class="day-line2-right" style="width:40rpx;height:40rpx;margin-top:10rpx;" src="/img/icon/to.png"></image>
+        <image wx:if="{{toIcon.length>1}}" class="day-line2-right" src="{{toIcon[1]}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="twodays-line"></view>
+
+  <view class="day" style="font-size:28rpx;">
+    <view class="day-line1">
+      <view class="day-line1-left">
+        <view class="day-line1-left-text1">明天</view>
+        <view class="day-line1-left-text2" style="background:{{neStyle.color}}">{{neAirLevle?neAirLevle:'优'}}</view>
+      </view>
+      <view class="day-line1-right">{{neHighAndLow.high?neHighAndLow.high:0}}/{{neHighAndLow.low?neHighAndLow.low:'°C'}}</view>
+    </view>
+    <view class="day-line2">
+      <view class="day-line2-left">{{newea?newea:'晴'}}</view>
+      <view style="display:flex;">
+        <image class="day-line2-right" src="{{neIcon[0]}}"></image>
+        <image wx:if="{{neIcon.length>1}}" class="day-line2-right" style="width:40rpx;height:40rpx;margin-top:10rpx;" src="/img/icon/to.png"></image>
+        <image wx:if="{{neIcon.length>1}}" class="day-line2-right" src="{{neIcon[1]}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 模态框 -->
+<view wx:if="{{show}}" class="model" bindtap='hideInput'></view>
+
+<!-- 输入框 -->
+<view wx:if="{{show}}" class="input" catchtap='tapInputBlock'>
+  <view class="inputblock">
+    <view class="inputblock-title">东经</view>
+    <input auto-focus class="inputblock-input" type="digit" maxlength="180" placeholder-class="placeholder" placeholder='请输入经度,范围0°-180°' bindinput='longInput'></input>
+  </view>
+
+  <view class="inputblock">
+    <view class="inputblock-title">北纬</view>
+    <input class="inputblock-input" type="digit" maxlength="90" placeholder-class="placeholder" placeholder='请输入维度,范围0°-90°' bindinput='latInput'></input>
+  </view>
+  
+  <view class="confirm" bindtap="search" style="background:{{latvalue && longvalue?'rgb(1, 112, 238);':'rgb(107, 107, 107)'}}">查询</view>
+</view>

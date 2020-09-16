@@ -1,0 +1,51 @@
+<!--pages/position/position.wxml-->
+<view class="container">
+  <view class="up">
+    <view class="search">
+      <image class="search-icon" src="/img/icon/zuji-s.png"></image>
+      <input value="{{inputValue}}" class="search-input" placeholder='请输入城市名,查询天气信息' placeholder-style="color:#a3a3a3;font-size:30rpx;" bindinput="cityInput"></input>
+      <view class="icon-container" style="opacity:{{inputText?1:0}}">
+        <image class="close" src="/img/icon/search_close.png" bindtap="close"></image>
+      </view>
+
+    </view>
+    <view class="cancel" bindtap="back">取消</view>
+  </view>
+
+  <view wx:if="{{!inputText}}">
+    <!-- 快捷查找 -->
+    <view style="color:black;font-size:35rpx;margin-left:30rpx;margin-top:170rpx;">快捷查找</view>
+
+    <view class="quick">
+      <view data-type="quick" data-city="{{city}}" data-index="{{index}}" class="city" wx:for="{{hotcities}}" wx:for-item="city" wx:key='c' style="background:{{index == currentIndex?'#4393ec':index==0?'#bbbbbb':'#f2f2f2'}};color:{{index == currentIndex?'white':'#676767'}}" bindtap="change">
+        {{city}}
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+
+    <ad unit-id="adunit-e2eedfe1f8bbce69" ad-type="video" ad-theme="white"></ad>
+
+    <!-- 历史记录 -->
+    <view class="history">
+      <view class="history-title">历史记录</view>
+      <view class="history-right" bindtap="clear" hover-class='select2' hover-stay-time='300'>
+        <image class="history-icon" src="/img/icon/search_delete.png"></image>
+        <view style="margin-left:5rpx;font-size:25rpx;">清空</view>
+      </view>
+    </view>
+
+    <view class="quick">
+      <view data-type="history" data-city="{{city}}" data-index="{{index}}" class="city" wx:for="{{history}}" wx:for-item="city" wx:key='c' style="background:{{index == currentHIndex?'#4393ec':'#f2f2f2'}};color:{{index == currentHIndex?'white':'#676767'}}" bindtap="change">
+        {{city}}
+      </view>
+      <view style="clear:both;"></view>
+    </view>
+  </view>
+
+  <scroll-view wx:if="{{inputText}}" class="scroll" scroll-y style="height:{{windowHeight-110}}rpx;">
+    <view data-city="{{item}}" class="list-item" wx:for="{{list}}" wx:key="l" bindtap="select" hover-class='select1' hover-stay-time='300'>
+      <view>{{item.str}}</view>
+      <view class="list-history" style="opacity:{{item.has?1:0}};">历史记录</view>
+    </view>
+  </scroll-view>
+</view>
