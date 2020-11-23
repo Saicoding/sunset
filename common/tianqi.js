@@ -62,8 +62,8 @@ function addressWeather(city, self) {
     url: 'https://www.tianqiapi.com/api/',
     data: {
       city,
-      appid: 94999234,
-      appsecret:'bXVBcI1F',
+      appid: 15261146,
+      appsecret:'J1c4TTzo',
       version:'v1'
     },
     method: 'GET',
@@ -86,8 +86,8 @@ function addressWeather(city, self) {
     url: 'https://www.tianqiapi.com/api/',
     data: {
       city,
-      appid: 94999234,
-      appsecret: 'bXVBcI1F',
+      appid: 15261146,
+      appsecret: 'J1c4TTzo',
       version: 'v6'
     },
     method: 'GET',

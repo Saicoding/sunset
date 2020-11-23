@@ -162,6 +162,7 @@ Page({
    * 设置天气信息
    */
   setWeather: function(weatherweek) {
+    console.log(weatherweek)
     let today = weatherweek[0]; //今天
     let toAirLevle = weatherweek[0].air_level; //今天的空气质量
     toAirLevle = toAirLevle.indexOf('度') == -1 ? toAirLevle : toAirLevle + '污染';
